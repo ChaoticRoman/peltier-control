@@ -22,9 +22,6 @@
 #define LED_OUTPUT sbi(DDRB, 5)
 #define LED_ON sbi(PORTB, 5)
 #define LED_OFF cbi(PORTB, 5)
-#define BLINK LED_ON;_delay_ms(100);LED_OFF
-#define BLINK00 BLINK;_delay_ms(100)
-#define BLINK3 BLINK00;BLINK00;BLINK00
 
 #define DS_OUTPUT sbi(DDRD, 6)
 #define DS_ON sbi(PORTD, 6)
@@ -45,14 +42,15 @@ int main(void)
     LED_OUTPUT;
     InitLCD(0);
 
-    LCDWriteStringXY(0,0,"Ahoj");
-
+    int i = 0;
     while(1)
     {
         LED_ON;
-        _delay_ms(100);
+        _delay_ms(10);
         LED_OFF;
-        _delay_ms(900);
+        _delay_ms(990);
+
+        LCDWriteIntXY(0, 0, i++, 6);
     }
 
 

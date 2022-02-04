@@ -4,7 +4,9 @@
 
 ### AVR development toolchain
 
+```
 sudo apt install avr-libc avrdude binutils-avr gcc-avr
+```
 
 ### CH34x USB serial interface Linux kernel module
 

@@ -21,7 +21,7 @@
 #define LCD_E D 		//Enable OR strobe signal port
 #define LCD_E_POS	PD6	//Position of enable in above port
 
-#define LCD_RS D	
+#define LCD_RS D
 #define LCD_RS_POS 	PD4
 
 #define LCD_RW D
