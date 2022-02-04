@@ -224,4 +224,50 @@ F 3 "" H 6050 2350 50  0001 C CNN
 $EndComp
 Wire Wire Line
 	5300 2500 5900 2500
+$Comp
+L Connector_Generic:Conn_01x05 J?
+U 1 1 61FDA9CB
+P 4650 4550
+F 0 "J?" H 4730 4592 50  0000 L CNN
+F 1 "Joystick module" H 4730 4501 50  0000 L CNN
+F 2 "" H 4650 4550 50  0001 C CNN
+F 3 "~" H 4650 4550 50  0001 C CNN
+	1    4650 4550
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:GND #PWR?
+U 1 1 61FDAA90
+P 4450 4350
+F 0 "#PWR?" H 4450 4100 50  0001 C CNN
+F 1 "GND" V 4455 4222 50  0000 R CNN
+F 2 "" H 4450 4350 50  0001 C CNN
+F 3 "" H 4450 4350 50  0001 C CNN
+	1    4450 4350
+	0    1    1    0   
+$EndComp
+$Comp
+L power:+5V #PWR?
+U 1 1 61FDAB68
+P 4450 4450
+F 0 "#PWR?" H 4450 4300 50  0001 C CNN
+F 1 "+5V" V 4465 4578 50  0000 L CNN
+F 2 "" H 4450 4450 50  0001 C CNN
+F 3 "" H 4450 4450 50  0001 C CNN
+	1    4450 4450
+	0    -1   -1   0   
+$EndComp
+NoConn ~ 4450 4750
+Text Label 4450 4550 2    50   ~ 0
+VRX
+Text Label 4450 4650 2    50   ~ 0
+VRY
+Wire Wire Line
+	4450 4550 4100 4550
+Wire Wire Line
+	4450 4650 4100 4650
+Text Label 4100 4650 2    50   ~ 0
+ADC7
+Text Label 4100 4550 2    50   ~ 0
+ADC6
 $EndSCHEMATC
