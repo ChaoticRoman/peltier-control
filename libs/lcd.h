@@ -31,20 +31,27 @@
 #define LS_ULINE 0B00000010
 
 void InitLCD(uint8_t style);
+
 void LCDWriteString(const char *msg);
-void LCDWriteInt(int val,unsigned int field_length);
-void LCDGotoXY(uint8_t x,uint8_t y);
+
+// field length is from 1 to 5, see the code
+void LCDWriteInt(int val, unsigned int field_length);
+
+void LCDGotoXY(uint8_t x, uint8_t y);
+
 
 //Low level
 void LCDByte(uint8_t,uint8_t);
 #define LCDCmd(c) (LCDByte(c,0))
 #define LCDData(d) (LCDByte(d,1))
+#define LCDChar(d) (LCDByte(d, 1))
+
 
 void LCDBusyLoop();
 
 //	M A C R O S
 #define LCDClear() LCDCmd(0b00000001)
-#define LCDHome() LCDCmd(0b00000010);
+#define LCDHome() LCDCmd(0b00000010)
 
 #define LCDWriteStringXY(x,y,msg) {\
  LCDGotoXY(x,y);\
