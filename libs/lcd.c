@@ -1,3 +1,5 @@
+#include "lcd.h"
+
 #include <avr/io.h>
 #include <inttypes.h>
 
@@ -6,9 +8,6 @@
 #endif
 
 #include <util/delay.h>
-
-#include "lcd.h"
-
 
 
 #define LCD_DATA_PORT 	PORT(LCD_DATA)
@@ -105,7 +104,7 @@ void LCDBusyLoop()
 
 	_delay_us(0.5);		//tAS
 
-	
+
 	do
 	{
 
@@ -147,7 +146,7 @@ void LCDBusyLoop()
 void InitLCD(uint8_t style)
 {
 	/*****************************************************************
-	
+
 	This function Initializes the lcd module
 	must be called before calling lcd related functions
 
@@ -157,10 +156,10 @@ void InitLCD(uint8_t style)
 	LS_ULINE :Cursor is "underline" type else "block" type
 
 	*****************************************************************/
-	
+
 	//After power on Wait for LCD to Initialize
 	_delay_ms(30);
-	
+
 	//Set IO Ports
 	LCD_DATA_DDR|=(0x0F);
 	LCD_E_DDR|=(1<<LCD_E_POS);
@@ -180,7 +179,7 @@ void InitLCD(uint8_t style)
 	_delay_us(1);
 	CLEAR_E();
 	_delay_us(1);
-	
+
 	//Wait for LCD to execute the Functionset Command
 	LCDBusyLoop();                                    //[B] Forgot this delay
 
@@ -192,7 +191,7 @@ void InitLCD(uint8_t style)
 void LCDWriteString(const char *msg)
 {
 	/*****************************************************************
-	
+
 	This function Writes a given string to lcd at the current cursor
 	location.
 

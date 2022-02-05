@@ -4,7 +4,7 @@
 
 #include "defines.h"
 
-/*#include "libs/DS18B20.h"*/
+//#include "libs/DS18B20.h"
 #include "libs/lcd.h"
 
 
@@ -63,11 +63,22 @@ int main(void)
     sei();
     while(1)
     {
+        if (++tick > 99999) tick = 0;
+
         LCDClear();
         LCDHome();
-        LCDWriteInt(tick++, 5);
-        LCDWriteIntXY(0, 1, joyX >> 5, 3);
-        LCDWriteIntXY(8, 1, joyY >> 5, 3);
+
+        LCDChar('T');
+        LCDWriteInt(tick, 5);
+
+        LCDChar(' ');
+        LCDChar('X');
+        LCDWriteInt(joyX >> 5, 1);
+
+        LCDChar(' ');
+        LCDChar('Y');
+        LCDWriteInt(joyY >> 5, 1);
+
         _delay_ms(100);
     }
 

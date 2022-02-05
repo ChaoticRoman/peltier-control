@@ -19,9 +19,7 @@ all: hex
 $(OBJ): defines.h
 ./libs/lcd.o: ./libs/lcd.h
 ./libs/usart.o: ./libs/usart.h
-./libs/DS18B20.o: ./libs/DS18B20.h
-./libs/T6963C.o: ./libs/T6963C.h
-./libs/graphic.o: ./libs/graphic.h
+# ./libs/DS18B20.o: ./libs/DS18B20.h
 
 $(PRG).elf: $(OBJ)
 	$(CC) $(CFLAGS) $(LDFLAGS) -o $@ $^ $(LIBS)

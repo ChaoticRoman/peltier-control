@@ -1,19 +1,15 @@
-#include <avr/io.h>
-
-#ifndef F_CPU
-	#define F_CPU 12000000UL
-#endif
-
-#include <util/delay.h>
-
-#include "myutils.h"
-
 #ifndef _LCD_H
 #define _LCD_H
 
-#define LCD_DATA D // assume P0-D4 to P3-D7 in 4 lines mode
+#include <avr/io.h>
 
-/*#define LCD_DATA_D4 PC3	much fucking work, cancelled, Roman
+#include "myutils.h"
+
+ // PORTD PIN0123 - LCD D4567 (LCD 4 lines mode)
+#define LCD_DATA D
+
+// much fucking work, cancelled, Roman
+/*#define LCD_DATA_D4 PC3
 #define LCD_DATA_D5 PC2
 #define LCD_DATA_D6 PC1
 #define LCD_DATA_D7 PC0*/
