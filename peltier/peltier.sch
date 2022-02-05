@@ -311,24 +311,10 @@ NoConn ~ 1450 2900
 NoConn ~ 1450 3000
 NoConn ~ 1450 3100
 NoConn ~ 1450 3200
-$Comp
-L power:PWR_FLAG #FLG0102
-U 1 1 61FDDBAB
-P 2400 3550
-F 0 "#FLG0102" H 2400 3625 50  0001 C CNN
-F 1 "PWR_FLAG" H 2400 3723 50  0000 C CNN
-F 2 "" H 2400 3550 50  0001 C CNN
-F 3 "~" H 2400 3550 50  0001 C CNN
-	1    2400 3550
-	-1   0    0    1   
-$EndComp
 Wire Wire Line
 	1950 3500 1950 3550
 Wire Wire Line
 	2050 3500 2050 3550
-Wire Wire Line
-	2050 3550 2400 3550
-Connection ~ 2050 3550
 $Comp
 L MCU_Module:Arduino_Nano_v3.x A1
 U 1 1 61FBB5AA
@@ -360,4 +346,20 @@ Text Label 4900 2450 0    50   ~ 0
 PD7
 Text Notes 4100 1800 0    157  ~ 0
 DS18B20
+Text Notes 1450 4400 0    39   ~ 0
+TODO:\n* symbol is unpractical, create a new\nwith ATMEGA ports/pins/alt. functions\ninfo\n* then change net names to correspond\nto peripheral device name
+$Comp
+L power:PWR_FLAG #FLG0102
+U 1 1 61FDDBAB
+P 2400 3550
+F 0 "#FLG0102" H 2400 3625 50  0001 C CNN
+F 1 "PWR_FLAG" H 2400 3723 50  0000 C CNN
+F 2 "" H 2400 3550 50  0001 C CNN
+F 3 "~" H 2400 3550 50  0001 C CNN
+	1    2400 3550
+	-1   0    0    1   
+$EndComp
+Wire Wire Line
+	2050 3550 2400 3550
+Connection ~ 2050 3550
 $EndSCHEMATC
