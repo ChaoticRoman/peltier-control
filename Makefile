@@ -1,5 +1,5 @@
 PRG            = peltier
-OBJ            = main.o ./libs/lcd.o # ./libs/T6963C.o ./libs/graphic.o ./libs/DS18B20.o
+OBJ            = main.o ./libs/lcd.o ./libs/DS18B20.o
 MCU_TARGET     = atmega168p
 AVRDUDE_PART   = atmega168p
 OPTIMIZE       = -O1
@@ -17,9 +17,9 @@ all: hex
 
 #all depends on defines.h
 $(OBJ): defines.h
-./libs/lcd.o: ./libs/lcd.h
+./libs/lcd.o: ./libs/lcd.h ./libs/myutils.h
 ./libs/usart.o: ./libs/usart.h
-# ./libs/DS18B20.o: ./libs/DS18B20.h
+./libs/DS18B20.o: ./libs/DS18B20.h
 
 $(PRG).elf: $(OBJ)
 	$(CC) $(CFLAGS) $(LDFLAGS) -o $@ $^ $(LIBS)

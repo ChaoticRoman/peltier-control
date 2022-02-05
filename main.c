@@ -4,14 +4,13 @@
 
 #include "defines.h"
 
-//#include "libs/DS18B20.h"
 #include "libs/lcd.h"
+#include "libs/DS18B20.h"
 
-
-// 0 drop
-// 1 measure ADC6 to X
-// 2 drop
-// 3 measure ADC7 to Y
+// 0 drop ADC measuremnt
+// 1 measure ADC6 to X, switch to ADC7
+// 2 drop ADC measuremnt
+// 3 measure ADC7 to Y, switch to ADC6
 volatile uint8_t joystick_ADC_status = 0;
 
 volatile uint8_t joyX = 0;
@@ -48,6 +47,7 @@ ISR(ADC_vect) {
 
 int main(void)
 {
+    set_therm(7);
     InitLCD(0);
 
     // AVCC as a ref, left adjsuted (for 8 bit), ADC6, datasheet p.274
@@ -60,15 +60,17 @@ int main(void)
 
     uint32_t tick = 0;
 
-    sei();
+    //sei();
+    cli();
     while(1)
     {
         if (++tick > 99999) tick = 0;
 
+        uint16_t temp = DS_get();
+
         LCDClear();
         LCDHome();
 
-        LCDChar('T');
         LCDWriteInt(tick, 5);
 
         LCDChar(' ');
@@ -79,7 +81,14 @@ int main(void)
         LCDChar('Y');
         LCDWriteInt(joyY >> 5, 1);
 
-        _delay_ms(100);
+        LCDGotoXY(0, 1);
+        LCDChar('T');
+        LCDWriteInt(temp >> 8, 3);
+        LCDChar('.');
+        LCDWriteInt(temp & 0x00ff, 3);
+        LCDChar('C');
+
+        _delay_ms(1000);
     }
 
 
