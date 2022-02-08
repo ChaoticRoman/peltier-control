@@ -1,7 +1,11 @@
 PRG            = peltier
 OBJ            = main.o ./libs/lcd.o ./libs/DS18B20.o
+
 MCU_TARGET     = atmega168p
 AVRDUDE_PART   = atmega168p
+#MCU_TARGET     = atmega328p
+#AVRDUDE_PART   = atmega328p
+
 OPTIMIZE       = -O1
 PROGPORT       = /dev/ttyUSB0
 SERIALPORT     = /dev/ttyUSB1

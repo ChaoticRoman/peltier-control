@@ -1,4 +1,5 @@
 #define _ATMEGA168P
+//#define _ATMEGA328P
 #include <inttypes.h>
 
 #include <avr/io.h>

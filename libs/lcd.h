@@ -14,14 +14,14 @@
 #define LCD_DATA_D6 PC1
 #define LCD_DATA_D7 PC0*/
 
-#define LCD_E D 		//Enable OR strobe signal port
-#define LCD_E_POS	PD6	//Position of enable in above port
-
 #define LCD_RS D
 #define LCD_RS_POS 	PD4
 
 #define LCD_RW D
 #define LCD_RW_POS 	PD5
+
+#define LCD_E D 		//Enable OR strobe signal port
+#define LCD_E_POS	PD6	//Position of enable in above port
 
 #define LS_BLINK 0B00000001
 #define LS_ULINE 0B00000010
